@@ -1,5 +1,4 @@
 package br.com.chatinteligentesenac;
-import br.com.telas.ChatBotTela;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -23,6 +22,7 @@ public class ChatBotView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jbEnviar = new javax.swing.JButton();
         jtPergunta = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -38,17 +38,19 @@ public class ChatBotView extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jbEnviar.setBackground(new java.awt.Color(204, 204, 204));
-        jbEnviar.setIcon(new javax.swing.ImageIcon("/Documents/Java/ChatBot Senac/ChatBotSenac/src/main/resources/images/enviar-mensagem.png")); // NOI18N
         jbEnviar.setBorderPainted(false);
-        jbEnviar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbEnviar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jbEnviar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jbEnviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbEnviarActionPerformed(evt);
             }
         });
-        getContentPane().add(jbEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 230, 40, 40));
+        jPanel1.add(jbEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 230, 40, 40));
 
         jtPergunta.setBackground(new java.awt.Color(204, 204, 204));
         jtPergunta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -57,29 +59,30 @@ public class ChatBotView extends javax.swing.JFrame {
                 jtPerguntaActionPerformed(evt);
             }
         });
-        getContentPane().add(jtPergunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 520, 40));
+        jPanel1.add(jtPergunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 520, 40));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("O que você gostaria de saber?");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Bem-vindo ao chat inteligente do Senac!");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, -1, -1));
 
         jtResposta.setBackground(new java.awt.Color(204, 204, 204));
         jtResposta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jScrollPane1.setViewportView(jtResposta);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 520, 210));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 520, 210));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("/Documents/Java/ChatBot Senac/ChatBotSenac/src/main/resources/images/Bem vindo de volta.png")); // NOI18N
         jLabel1.setMaximumSize(new java.awt.Dimension(544, 574));
         jLabel1.setMinimumSize(new java.awt.Dimension(544, 574));
         jLabel1.setPreferredSize(new java.awt.Dimension(544, 574));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 550));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 550));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 550));
 
         pack();
         setLocationRelativeTo(null);
@@ -170,7 +173,7 @@ public class ChatBotView extends javax.swing.JFrame {
 
     // Aqui recebe a resposta do chatGPT e retorna
     public String extractContentFromResponse(String response) {
-        ChatBotTela view = new ChatBotTela();
+        //ChatBotView = new ChatBotView();
         
         int startMarker = response.indexOf("content")+11; // Marcardor inicial do content.
         int endMarker = response.indexOf("\"", startMarker); // Marcador final do content.
@@ -183,6 +186,7 @@ public class ChatBotView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbEnviar;
     private javax.swing.JTextField jtPergunta;
